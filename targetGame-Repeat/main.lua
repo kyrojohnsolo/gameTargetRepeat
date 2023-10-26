@@ -55,10 +55,15 @@ function love.draw()
     -- sets font to global variable gameFont
     love.graphics.setFont(gameFont)
     -- prints score in the upper left corner of screen
-    love.graphics.print(score,0, 0)
+    love.graphics.print("Score: " .. score,5, 5)
     -- prints timer in the upper centerish of the screen
     -- math.ceil rounds the number up to the next highest integer, this prevents the decimal from showing.
-    love.graphics.print(math.ceil(timer),300, 0)
+    love.graphics.print("Time: " .. math.ceil(timer),300, 5)
+
+    if gameState == 1 then
+        love.graphics.printf("Click anywhere to begin", 0, 250, love.graphics.getWidth(), "center")
+    end
+
     -- this draws the target sprite and assigns the position to the targetX and targetY position.
     --  also, you need to subtract the target.radius to correct for the offset position of the PNG
     -- the target being drawn should only run when game is active.
